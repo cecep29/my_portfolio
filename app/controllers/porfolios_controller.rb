@@ -36,6 +36,15 @@ class PorfoliosController < ApplicationController
     @portfolio_item = Porfolio.find(params[:id])
   end
 
+  def destroy
+    @portfolio_item = Porfolio.find(params[:id])
+
+    @portfolio_item.destroy
+
+    redirect_to porfolios_url, notice: "Record was removed."
+
+  end
+
   private
     def portfolio_params
       params.require(:porfolio).permit(:title, :subtitle, :body)
