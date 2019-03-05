@@ -56,6 +56,6 @@ class PorfoliosController < ApplicationController
                                         :title, 
                                         :subtitle, 
                                         :body, 
-                                        technologies_attributes: [:name])
+                                         technologies_attributes: [:name])
     end
 end
