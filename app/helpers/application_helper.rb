@@ -15,4 +15,8 @@ module ApplicationHelper
       content_tag(:p, greeting, class: "source-greeting")
     end
   end
+
+  def copyright_generator name, msg
+    "&copy; #{Time.now.year} | <b>#{name}</b> #{msg}".html_safe
+  end
 end
