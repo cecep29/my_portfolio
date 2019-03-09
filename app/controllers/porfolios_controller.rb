@@ -1,4 +1,5 @@
 class PorfoliosController < ApplicationController
+  before_action :set_portfolio_item, only: [:update, :edit, :show, :destroy]
   layout 'portfolio'
 
   def index 
@@ -25,11 +26,10 @@ class PorfoliosController < ApplicationController
   end
 
   def edit
-    @portfolio_item = Porfolio.find(params[:id])
+ 
   end
 
   def update
-    @portfolio_item = Porfolio.find(params[:id])
     @portfolio_item.update(portfolio_params)
 
     if @portfolio_item.save
@@ -40,12 +40,10 @@ class PorfoliosController < ApplicationController
   end
 
   def show
-    @portfolio_item = Porfolio.find(params[:id])
+
   end
 
   def destroy
-    @portfolio_item = Porfolio.find(params[:id])
-
     @portfolio_item.destroy
 
     redirect_to porfolios_url, notice: "Record was removed."
@@ -59,5 +57,9 @@ class PorfoliosController < ApplicationController
                                         :subtitle, 
                                         :body, 
                                          technologies_attributes: [:name])
+    end
+
+    def set_portfolio_item
+      @portfolio_item = Porfolio.find(params[:id])
     end
 end
