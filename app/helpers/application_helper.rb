@@ -16,7 +16,7 @@ module ApplicationHelper
     end
   end
 
-  def copyright_generator name, msg
+  def copyright_generator name = "Cecep Efendi", msg = "All rights reserved"
     "&copy; #{Time.now.year} | <b>#{name}</b> #{msg}".html_safe
   end
 end
